@@ -1,28 +1,40 @@
 #include <stdio.h>
-#include <string.h>          //문자열 함수를 사용하였으므로  
+#include <string.h>          //문자열 함수를 사용하였으므로
+#include <math.h>  
 #include <stdlib.h>
-#define MAX_NAME            20
+
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 
-struct student{
-	int ID;
-	char name[MAX_NAME];
-	double grade;
+struct point{
+	int x;
+	int y;
 };
 
 
 int main(int argc, char *argv[]) {
 	
-	struct student student1 = {2114114, "HyojinPark", 4.3};          //instance
+	struct point p1, p2;
+	int xdiff, ydiff;
+	double dist;
 	
-	student1.ID = 2111893;
-	strcpy(student1.name, "SuinKim");
-	student1.grade = 3.3;
+	printf("input p1 coordinate (x y) : ");
+	scanf("%d %d", &p1.x, &p1.y);
 	
-	printf("ID : %i\n", student1.ID);
-	printf("name : %s\n", student1.name);
-	printf("grade : %lf\n", student1.grade);
+	printf("input p2 coordinate (x y) : ");
+	scanf("%d %d", &p2.x, &p2.y);
+	
+	//p1, p2간의 거리를 계산하고 출력 
+	//calculate xdiff
+	xdiff = p2.x - p1.x;
+	
+	//calculate ydiff 
+	ydiff = p2.y - p1.y;
+	
+	//sqrt(xdiff^2 + ydiff^2) -> dist	
+	dist = sqrt(xdiff*xdiff + ydiff*ydiff);
+	
+	printf("distance : %lf\n", dist);
 	
 	return 0;
 }
